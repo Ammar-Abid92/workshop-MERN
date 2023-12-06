@@ -1,0 +1,6 @@
+To install react router for smooth navigation of pages:
+npm i react-router-dom
+
+--> We have used material ui for styling of multiple components.
+To install mui package in react:
+npm install @mui/material @emotion/react @emotion/styled
