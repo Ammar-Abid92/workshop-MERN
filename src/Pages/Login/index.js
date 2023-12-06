@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import TextBox from '../../Components/TextBox';
 import styles from './login.module.css';
 import CustomButton from '../../Components/CustomButton';
+import { useNavigate } from 'react-router';
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -25,6 +28,7 @@ function Login() {
                         <TextBox value={password} setter={setPassword} label={'Password'} type={'password'} required={true} />
                     </div>
                     <CustomButton btnLabel={'Login'} />
+                    <div className={styles.dontHaveAnAccountDiv} onClick={() => navigate('/signup')}>Don't Have An Account?</div>
                 </form>
             </div>
         </div>

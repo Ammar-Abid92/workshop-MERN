@@ -1,11 +1,11 @@
-.loginPage {
+.signupPage {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-.loginBox {
+.signupBox {
     width: 300px;
     padding: 20px;
     border: 1px solid #ccc;
@@ -13,9 +13,15 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.loginBox h2 {
+.signupBox h2 {
     font-size: 30px;
     margin-bottom: 8px;
+}
+
+.alreadyHaveAnAccountDiv {
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: 600;
 }
 
 .input-group {

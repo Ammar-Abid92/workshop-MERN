@@ -18,6 +18,12 @@
     margin-bottom: 8px;
 }
 
+.dontHaveAnAccountDiv {
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
 .input-group {
     margin-bottom: 15px;
 }

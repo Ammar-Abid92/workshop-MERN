@@ -2,17 +2,21 @@ import React, { useState } from 'react';
 import TextBox from '../../Components/TextBox';
 import styles from './signup.module.css';
 import CustomButton from '../../Components/CustomButton';
+import { useNavigate } from 'react-router';
 
 function SignUp() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log('Name:', name);
         console.log('Email:', email);
         console.log('Password:', password);
     };
+
 
     return (
         <div className={styles.signupPage}>
@@ -29,6 +33,7 @@ function SignUp() {
                         <TextBox value={password} setter={setPassword} label={'Password'} type={'password'} required={true} />
                     </div>
                     <CustomButton btnLabel={'SignUp'} />
+                    <div className={styles.alreadyHaveAnAccountDiv} onClick={() => navigate('/')}>Already Have An Account?</div>
                 </form>
             </div>
         </div>
