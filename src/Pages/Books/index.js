@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './books.module.css';
 import Table from '../../Components/Table';
 import Header from '../../Components/Header';
 import { useLanguage } from '../../Context/languageContext';
 import CustomButton from '../../Components/CustomButton';
+import CustomModal from '../../Modals';
 
 const Books = () => {
+
+    const [openModal, setOpenModal] = useState(false);
+
+    const onModalClose = () => {
+        setOpenModal((prev) => !prev);
+    }
 
     const { language } = useLanguage()
     const tableHeader = ['ID', 'Name', 'Status', 'Version', 'Actions'];
@@ -28,10 +35,11 @@ const Books = () => {
             <div className={styles.booksMainContainer}>
                 <div className={styles.subHeader} >
                     <h1 className={styles.heading} >{language.manageBooksHere}</h1>
-                    <CustomButton btnLabel="Add book" />
+                    <CustomButton btnLabel="Add book" onClick={() => setOpenModal(true)} />
                 </div>
                 <Table tableHeader={tableHeader} tableData={tableData} />
             </div>
+            {openModal && <CustomModal formName={'books'} isOpen={openModal} onClose={onModalClose} />}
         </>
     )
 }

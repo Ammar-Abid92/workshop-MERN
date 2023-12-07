@@ -1,13 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useLanguage } from '../../Context/languageContext';
 import Table from '../../Components/Table';
 import Header from '../../Components/Header';
 import styles from "./students.module.css"
 import CustomButton from '../../Components/CustomButton';
+import CustomModal from '../../Modals';
 
 const Students = () => {
     const { language } = useLanguage()
+    const [openModal, setOpenModal] = useState(false);
 
+    const onModalClose = () => {
+        setOpenModal((prev) => !prev);
+    }
     const tableHeader = ['ID', 'Department', 'Name', 'Roll Number', 'Year', 'Actions'];
 
     const tableData = [
@@ -29,11 +34,12 @@ const Students = () => {
             <div className={styles.studentMainContainer}>
                 <div className={styles.subHeader} >
                     <h1 className={styles.heading} >{language.manageStudentsHere}</h1>
-                    <CustomButton btnLabel="Add student" />
+                    <CustomButton btnLabel="Add student" onClick={() => setOpenModal(true)} />
                 </div>
 
                 <Table tableHeader={tableHeader} tableData={tableData} />
             </div>
+            {openModal && <CustomModal formName={'students'} isOpen={openModal} onClose={onModalClose} />}
         </>
     )
 }
