@@ -5,11 +5,9 @@ const en = {
     "records": "Records",
     "students": "Students",
     "welcome": "Welcome to library management system!",
-    "manageBooksHere": "Manage Books here",
-    "manageRecordsHere": "Manage Records here",
-    "manageStudentsHere": "Manage Students here",
-
-
+    "manageBooksHere": "Manage books here",
+    "manageRecordsHere": "Manage records here",
+    "manageStudentsHere": "Manage students here",
 }
 
 export default en;

@@ -1,3 +1,10 @@
 .heading{
     margin-top: 10px;
 }
+
+.subHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 20px 20px 0px
+}

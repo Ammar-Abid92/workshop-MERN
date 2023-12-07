@@ -3,50 +3,41 @@ import styles from './books.module.css';
 import CustomTable from '../../Components/Table';
 import Header from '../../Components/Header';
 import { useLanguage } from '../../Context/languageContext';
+import CustomButton from '../../Components/CustomButton';
 
 const Books = () => {
 
-    const {language} = useLanguage()
+    const { language } = useLanguage()
 
     const columns = [
         { field: 'id', headerName: 'ID', width: 70 },
-        { field: 'firstName', headerName: 'First name', width: 130 },
-        { field: 'lastName', headerName: 'Last name', width: 130 },
-        {
-            field: 'age',
-            headerName: 'Age',
-            type: 'number',
-            width: 90,
-        },
-        {
-            field: 'fullName',
-            headerName: 'Full name',
-            description: 'This column has a value getter and is not sortable.',
-            sortable: false,
-            width: 160,
-            valueGetter: (params) =>
-                `${params.row.firstName || ''} ${params.row.lastName || ''}`,
-        },
+        { field: 'name', headerName: 'Book name', width: 250 },
+        { field: 'status', headerName: 'status', width: 130 },
+        { field: 'version', headerName: 'Version', type: 'number', width: 90 },
     ];
 
-    const rows = [
-        { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-        { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-        { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-        { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-        { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-        { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-        { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-        { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-        { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-    ];
+    const bookData = [
+        { id: 1, name: 'The Catcher in the Rye', status: 'available', version: 1 },
+        { id: 2, name: 'To Kill a Mockingbird', status: 'borrowed', version: 2 },
+        { id: 3, name: '1984', status: 'available', version: 1 },
+        { id: 4, name: 'The Great Gatsby', status: 'available', version: 1 },
+        { id: 5, name: 'One Hundred Years of Solitude', status: 'borrowed', version: 2 },
+        { id: 6, name: 'Brave New World', status: 'available', version: 1 },
+        { id: 7, name: 'The Lord of the Rings', status: 'available', version: 1 },
+        { id: 8, name: 'Pride and Prejudice', status: 'borrowed', version: 2 },
+        { id: 9, name: 'The Hobbit', status: 'available', version: 1 },
+        { id: 10, name: 'Harry Potter and the Sorcerer\'s Stone', status: 'available', version: 1 },
+      ];
 
 
     return (
         <div>
             <Header />
-            <h1 className={styles.heading} >{language.manageBooksHere}</h1>
-            <CustomTable columns={columns} rows={rows} />
+            <div className={styles.subHeader} >
+                <h1 className={styles.heading} >{language.manageBooksHere}</h1>
+                <CustomButton btnLabel="Add book" />
+            </div>
+            <CustomTable columns={columns} rows={bookData} />
         </div>
 
     )
