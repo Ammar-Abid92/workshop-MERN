@@ -1,9 +1,12 @@
 import "./App.css"
+import { LanguageProvide } from "./Context/languageContext";
 import MainRoutes from "./Routes";
 
 function App() {
   return (
-    <MainRoutes />
+    <LanguageProvide>
+      <MainRoutes />
+    </LanguageProvide>
   );
 }
 

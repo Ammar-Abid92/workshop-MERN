@@ -10,3 +10,19 @@ https://mui.com/material-ui
 
 MUI Table:
 https://mui.com/material-ui/react-table/
+
+
+To solve Babel Issue:
+npm install --save-dev @babel/plugin-proposal-private-property-in-object
+
+
+{
+    "presets": [
+      // ... other presets
+      "react-app"
+    ],
+    "plugins": [
+      // ... other plugins
+      "@babel/plugin-proposal-private-property-in-object"
+    ]
+  }

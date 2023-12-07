@@ -13,3 +13,10 @@
     margin: 0px 24px;
     font-size: 20px;
 }
+.language{
+    display: flex;
+    justify-content: flex-end;
+    align-items: end;
+    width: 20%;
+    margin-bottom: 20px;
+}
