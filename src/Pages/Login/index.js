@@ -14,6 +14,7 @@ function Login() {
         e.preventDefault();
         console.log('Email:', email);
         console.log('Password:', password);
+        navigate('/home')
     };
 
     return (

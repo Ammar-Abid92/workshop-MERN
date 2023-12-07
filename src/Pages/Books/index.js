@@ -15,8 +15,8 @@ const Books = () => {
     }
 
     const { language } = useLanguage()
-    const tableHeader = ['ID', 'Name', 'Status', 'Version', 'Actions'];
-    const tableData = [
+    const [tableData, setTableData] = useState([
+
         { ID: 1, Name: 'The Catcher in the Rye', Status: 'available', Version: 1 },
         { ID: 2, Name: 'To Kill a Mockingbird', Status: 'borrowed', Version: 2 },
         { ID: 3, Name: '1984', Status: 'available', Version: 1 },
@@ -27,7 +27,14 @@ const Books = () => {
         { ID: 8, Name: 'Pride and Prejudice', Status: 'borrowed', Version: 2 },
         { ID: 9, Name: 'The Hobbit', Status: 'available', Version: 1 },
         { ID: 10, Name: 'Harry Potter and the Sorcerer\'s Stone', Status: 'available', Version: 1 },
-    ];
+    ])
+
+    const tableHeader = ['ID', 'Name', 'Status', 'Version', 'Actions'];
+
+    const onDelete = (data) => {
+        let updatedData = tableData.filter(x=>x.ID != data.ID)
+        setTableData(updatedData)
+    }
 
     return (
         <>
@@ -37,7 +44,7 @@ const Books = () => {
                     <h1 className={styles.heading} >{language.manageBooksHere}</h1>
                     <CustomButton btnLabel="Add book" onClick={() => setOpenModal(true)} />
                 </div>
-                <Table tableHeader={tableHeader} tableData={tableData} />
+                <Table tableHeader={tableHeader} tableData={tableData} onDelete={onDelete} />
             </div>
             {openModal && <CustomModal formName={'books'} isOpen={openModal} onClose={onModalClose} />}
         </>

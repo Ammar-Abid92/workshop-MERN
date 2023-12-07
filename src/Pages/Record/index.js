@@ -8,6 +8,18 @@ import CustomModal from '../../Modals';
 
 const Records = () => {
     const { language } = useLanguage()
+    const [tableData, setTableData] = useState([
+        { ID: 1, bookName: 'The Catcher in the Rye', Status: 'active', studentId: 1, issueDate: '15/12/2023', returnDate: "30/12/2023" },
+        { ID: 2, bookName: 'To Kill a Mockingbird', Status: 'inactive', studentId: 2, issueDate: '15/12/2023', returnDate: "30/12/2023" },
+        { ID: 3, bookName: '1984', Status: 'active', studentId: 1, issueDate: '15/12/2023', returnDate: "30/12/2023" },
+        { ID: 4, bookName: 'The Great Gatsby', Status: 'active', studentId: 1, issueDate: '15/12/2023', returnDate: "30/12/2023" },
+        { ID: 5, bookName: 'One Hundred Years of Solitude', Status: 'inactive', studentId: 2, issueDate: '15/12/2023', returnDate: "30/12/2023" },
+        { ID: 6, bookName: 'Brave New World', Status: 'active', studentId: 1, issueDate: '15/12/2023', returnDate: "30/12/2023" },
+        { ID: 7, bookName: 'The Lord of the Rings', Status: 'active', studentId: 1, issueDate: '15/12/2023', returnDate: "30/12/2023" },
+        { ID: 8, bookName: 'Pride and Prejudice', Status: 'inactive', studentId: 2, issueDate: '15/12/2023', returnDate: "30/12/2023" },
+        { ID: 9, bookName: 'The Hobbit', Status: 'active', studentId: 1, issueDate: '15/12/2023', returnDate: "30/12/2023" },
+        { ID: 10, bookName: 'Harry Potter and the Sorcerer\'s Stone', Status: 'active', studentId: 1, issueDate: '15/12/2023', returnDate: "30/12/2023" },
+    ])
 
     const [openModal, setOpenModal] = useState(false);
 
@@ -16,19 +28,10 @@ const Records = () => {
     }
     const tableHeader = ['ID', 'Name', 'Status', 'Student ID', 'Issue Date', 'Return Date', 'Actions'];
 
-    const tableData = [
-        { id: 1, bookName: 'The Catcher in the Rye', status: 'available', studentId: 1, issueDate: '15/12/2023', returnDate: "30/12/2023" },
-        { id: 2, bookName: 'To Kill a Mockingbird', status: 'borrowed', studentId: 2, issueDate: '15/12/2023', returnDate: "30/12/2023" },
-        { id: 3, bookName: '1984', status: 'available', studentId: 1, issueDate: '15/12/2023', returnDate: "30/12/2023" },
-        { id: 4, bookName: 'The Great Gatsby', status: 'available', studentId: 1, issueDate: '15/12/2023', returnDate: "30/12/2023" },
-        { id: 5, bookName: 'One Hundred Years of Solitude', status: 'borrowed', studentId: 2, issueDate: '15/12/2023', returnDate: "30/12/2023" },
-        { id: 6, bookName: 'Brave New World', status: 'available', studentId: 1, issueDate: '15/12/2023', returnDate: "30/12/2023" },
-        { id: 7, bookName: 'The Lord of the Rings', status: 'available', studentId: 1, issueDate: '15/12/2023', returnDate: "30/12/2023" },
-        { id: 8, bookName: 'Pride and Prejudice', status: 'borrowed', studentId: 2, issueDate: '15/12/2023', returnDate: "30/12/2023" },
-        { id: 9, bookName: 'The Hobbit', status: 'available', studentId: 1, issueDate: '15/12/2023', returnDate: "30/12/2023" },
-        { id: 10, bookName: 'Harry Potter and the Sorcerer\'s Stone', status: 'available', studentId: 1, issueDate: '15/12/2023', returnDate: "30/12/2023" },
-    ];
-
+    const onDelete = (data) => {
+        let updatedData = tableData.filter(x=>x.ID != data.ID)
+        setTableData(updatedData)
+    }
 
     return (
         <>
@@ -38,7 +41,7 @@ const Records = () => {
                     <h1 className={styles.heading} >{language.manageRecordsHere}</h1>
                     <CustomButton btnLabel="Add record" onClick={() => setOpenModal(true)} />
                 </div>
-                <Table tableHeader={tableHeader} tableData={tableData} />
+                <Table tableHeader={tableHeader} tableData={tableData} onDelete={onDelete}  />
             </div>
             {openModal && <CustomModal formName={'records'} isOpen={openModal} onClose={onModalClose} />}
         </>
