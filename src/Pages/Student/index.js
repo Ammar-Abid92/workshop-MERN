@@ -21,6 +21,21 @@ const Students = () => {
         { ID: 9, department: 'Roxie', name: 'Harvey', rollNo: 65, year: 'TE' },
     ])
 
+    const [formData, setFormData] = useState({
+        ID: '',
+        department: '',
+        name: '',
+        rollNo: '',
+        year: '',
+
+    });
+
+    const handleSubmit = () => {
+        console.log('Form submitted:', formData);
+        setTableData(prev=>[...prev, formData])
+        setOpenModal(false)
+    };
+
     const onModalClose = () => {
         setOpenModal((prev) => !prev);
     }
@@ -42,7 +57,7 @@ const Students = () => {
 
                 <Table tableHeader={tableHeader} tableData={tableData} onDelete={onDelete} />
             </div>
-            {openModal && <CustomModal formName={'students'} isOpen={openModal} onClose={onModalClose} />}
+            {openModal && <CustomModal formName={'students'} onClose={onModalClose} formData={formData} setFormData={setFormData} handleSubmit={handleSubmit} />}
         </>
     )
 }

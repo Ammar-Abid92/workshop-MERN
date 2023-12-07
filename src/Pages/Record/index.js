@@ -23,6 +23,15 @@ const Records = () => {
 
     const [openModal, setOpenModal] = useState(false);
 
+    const [formData, setFormData] = useState({
+        ID: '',
+        bookName: '',
+        Status: '',
+        studentId: '',
+        issueDate: '',
+        returnDate: '',
+    });
+
     const onModalClose = () => {
         setOpenModal((prev) => !prev);
     }
@@ -32,6 +41,12 @@ const Records = () => {
         let updatedData = tableData.filter(x=>x.ID != data.ID)
         setTableData(updatedData)
     }
+
+    const handleSubmit = () => {
+        console.log('Form submitted:', formData);
+        setTableData(prev=>[...prev, formData])
+        setOpenModal(false)
+    };
 
     return (
         <>
@@ -43,7 +58,7 @@ const Records = () => {
                 </div>
                 <Table tableHeader={tableHeader} tableData={tableData} onDelete={onDelete}  />
             </div>
-            {openModal && <CustomModal formName={'records'} isOpen={openModal} onClose={onModalClose} />}
+            {openModal && <CustomModal formName={'records'} onClose={onModalClose} formData={formData} setFormData={setFormData} handleSubmit={handleSubmit} />}
         </>
     )
 }

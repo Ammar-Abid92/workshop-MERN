@@ -8,13 +8,8 @@ import CustomModal from '../../Modals';
 
 const Books = () => {
 
-    const [openModal, setOpenModal] = useState(false);
-
-    const onModalClose = () => {
-        setOpenModal((prev) => !prev);
-    }
-
     const { language } = useLanguage()
+    const [openModal, setOpenModal] = useState(false);
     const [tableData, setTableData] = useState([
 
         { ID: 1, Name: 'The Catcher in the Rye', Status: 'available', Version: 1 },
@@ -28,6 +23,27 @@ const Books = () => {
         { ID: 9, Name: 'The Hobbit', Status: 'available', Version: 1 },
         { ID: 10, Name: 'Harry Potter and the Sorcerer\'s Stone', Status: 'available', Version: 1 },
     ])
+
+    const [formData, setFormData] = useState({
+        ID: '',
+        Name: '',
+        Status: '',
+        Version: '',
+        // studentId: '',
+        // issueDate: '',
+        // returnDate: '',
+        // department: '',
+        // year: '',
+    });
+
+    const handleSubmit = () => {
+        console.log('Form submitted:', formData);
+        setTableData(prev=>[...prev, formData])
+        setOpenModal(false)
+    };
+    const onModalClose = () => {
+        setOpenModal((prev) => !prev);
+    }
 
     const tableHeader = ['ID', 'Name', 'Status', 'Version', 'Actions'];
 
@@ -46,7 +62,7 @@ const Books = () => {
                 </div>
                 <Table tableHeader={tableHeader} tableData={tableData} onDelete={onDelete} />
             </div>
-            {openModal && <CustomModal formName={'books'} isOpen={openModal} onClose={onModalClose} />}
+            {openModal && <CustomModal formName={'books'} onClose={onModalClose} formData={formData} setFormData={setFormData} handleSubmit={handleSubmit} />}
         </>
     )
 }
