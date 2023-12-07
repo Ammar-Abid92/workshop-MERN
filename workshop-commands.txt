@@ -11,6 +11,9 @@ https://mui.com/material-ui
 MUI Table:
 https://mui.com/material-ui/react-table/
 
+To install react-table:
+npm i @mui/x-data-grid
+
 
 To solve Babel Issue:
 npm install --save-dev @babel/plugin-proposal-private-property-in-object

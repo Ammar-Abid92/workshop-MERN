@@ -4,6 +4,8 @@ import Login from '../Pages/Login';
 import SignUp from '../Pages/SignUp';
 import Home from '../Pages/Home';
 import Books from '../Pages/Books';
+import Records from '../Pages/Record';
+import Students from '../Pages/Student';
 
 
 const MainRoutes = () => {
@@ -14,6 +16,8 @@ const MainRoutes = () => {
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/home" element={<Home />} />
                 <Route path="/books" element={<Books />} />
+                <Route path="/records" element={<Records />} />
+                <Route path="/students" element={<Students />} />
             </Routes>
         </BrowserRouter>
     )

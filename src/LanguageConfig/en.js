@@ -6,6 +6,10 @@ const en = {
     "students": "Students",
     "welcome": "Welcome to library management system!",
     "manageBooksHere": "Manage Books here",
+    "manageRecordsHere": "Manage Records here",
+    "manageStudentsHere": "Manage Students here",
+
+
 }
 
 export default en;

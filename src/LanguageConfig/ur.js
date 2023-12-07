@@ -5,7 +5,9 @@ const ur = {
     "records": "Records",
     "students": "Shaagird",
     "welcome": "library management system m khush amdeed!",
-    "manageBooksHere": "Idhr books manage kren",
+    "manageBooksHere": "Yahan books manage karen",
+    "manageRecordsHere": "Yahan Records manage karen",
+    "manageStudentsHere": "Yahan books manage karen",
 
 }
 

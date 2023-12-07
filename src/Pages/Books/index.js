@@ -2,8 +2,11 @@ import React from 'react';
 import styles from './books.module.css';
 import CustomTable from '../../Components/Table';
 import Header from '../../Components/Header';
+import { useLanguage } from '../../Context/languageContext';
 
 const Books = () => {
+
+    const {language} = useLanguage()
 
     const columns = [
         { field: 'id', headerName: 'ID', width: 70 },
@@ -42,10 +45,9 @@ const Books = () => {
     return (
         <div>
             <Header />
-            <h1 className={styles.heading} >Manage Books here</h1>
+            <h1 className={styles.heading} >{language.manageBooksHere}</h1>
             <CustomTable columns={columns} rows={rows} />
         </div>
-
 
     )
 }

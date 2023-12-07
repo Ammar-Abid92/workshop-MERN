@@ -15,8 +15,13 @@
 }
 .language{
     display: flex;
-    justify-content: flex-end;
-    align-items: end;
+    align-items: center;
+    position: absolute;
+    right: 0px;
     width: 20%;
     margin-bottom: 20px;
+}
+
+.language > * {
+    margin: 0px 10px;
 }
