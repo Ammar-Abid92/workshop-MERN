@@ -1,8 +1,12 @@
-.heading{
+.heading {
     margin-top: 10px;
 }
 
-.subHeader{
+.booksMainContainer {
+    margin: 0px 30px;
+}
+
+.subHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -8,11 +8,12 @@ npm install @mui/material @emotion/react @emotion/styled
 MUI Official Website:
 https://mui.com/material-ui
 
-MUI Table:
-https://mui.com/material-ui/react-table/
 
-To install react-table:
-npm i @mui/x-data-grid
+To use react icons in the project:
+1 --> npm i react-icons
+2 --> select the icon you want to use from the Website
+3 --> import the icon
+4 --> incorporate in your project
 
 
 To solve Babel Issue:
@@ -29,3 +30,5 @@ npm install --save-dev @babel/plugin-proposal-private-property-in-object
       "@babel/plugin-proposal-private-property-in-object"
     ]
   }
+
+

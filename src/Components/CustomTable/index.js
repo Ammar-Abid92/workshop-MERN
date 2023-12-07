@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CustomTable = ({ data }) => {
+const Table = ({ data }) => {
     return (
         <div>
             <h2>Book Table</h2>
@@ -28,4 +28,4 @@ const CustomTable = ({ data }) => {
     )
 }
 
-export default CustomTable
+export default Table;

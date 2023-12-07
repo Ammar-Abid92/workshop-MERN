@@ -1,21 +1,34 @@
-import * as React from 'react';
-import { DataGrid } from '@mui/x-data-grid';
+import React from 'react';
+import styles from './table.module.css';
+import { MdDelete, MdEdit } from 'react-icons/md';
 
-
-export default function CustomTable({ rows, columns }) {
+const Table = ({ tableHeader, tableData, isEditable }) => {
   return (
-    <div style={{ height: 400, width: '100%' }}>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        initialState={{
-          pagination: {
-            paginationModel: { page: 0, pageSize: 5 },
-          },
-        }}
-        pageSizeOptions={[5, 10]}
-        checkboxSelection
-      />
-    </div>
+    <table className={styles.table}>
+      <thead>
+        <tr>
+          {tableHeader?.map((header, index) => {
+            return (
+              <th key={index}>{header}</th>
+            )
+          })}
+
+        </tr>
+      </thead>
+      <tbody>
+        {tableData?.map((row, rowIndex) => (
+          <tr key={rowIndex}>
+            {Object.values(row)?.map((value) => {
+              return (
+                <td>{value}</td>
+              )
+            })}
+            <td className={styles.actionsColumn}><MdDelete /><MdEdit /></td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
-}
+};
+
+export default Table;
