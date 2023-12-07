@@ -15,6 +15,8 @@ function SignUp() {
         console.log('Name:', name);
         console.log('Email:', email);
         console.log('Password:', password);
+        navigate('/home')
+
     };
 
 
@@ -32,7 +34,7 @@ function SignUp() {
                     <div className="input-group">
                         <TextBox value={password} setter={setPassword} label={'Password'} type={'password'} required={true} />
                     </div>
-                    <CustomButton btnLabel={'SignUp'} />
+                    <CustomButton btnLabel={'SignUp'} onClick={handleSubmit} />
                     <div className={styles.alreadyHaveAnAccountDiv} onClick={() => navigate('/')}>Already Have An Account?</div>
                 </form>
             </div>

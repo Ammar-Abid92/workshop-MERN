@@ -28,7 +28,7 @@ function Login() {
                     <div className="input-group">
                         <TextBox value={password} setter={setPassword} label={'Password'} type={'password'} required={true} />
                     </div>
-                    <CustomButton btnLabel={'Login'} />
+                    <CustomButton btnLabel={'Login'} onClick={handleSubmit} />
                     <div className={styles.dontHaveAnAccountDiv} onClick={() => navigate('/signup')}>Don't Have An Account?</div>
                 </form>
             </div>
